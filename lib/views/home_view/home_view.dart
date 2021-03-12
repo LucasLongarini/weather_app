@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../config/themes.dart';
-import 'widgets/home_view_item.dart';
+import '../../config/themes.dart';
+import './widgets/home_view_item.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
                   SizedBox(height: 8),
                   HomeViewItem(),
                   SizedBox(height: 40),
-                  Text("Saved Locations", style: titleStyle), 
+                  Text("Saved Locations", style: titleStyle),
                   SizedBox(height: 8),
                   HomeViewItem(),
                 ],

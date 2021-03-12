@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/home_view.dart';
+import 'views/home_view/home_view.dart';
 import 'config/themes.dart';
 
 void main() {
@@ -17,4 +17,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
