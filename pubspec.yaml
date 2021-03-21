@@ -21,7 +21,11 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  get: ^3.26.0
   flutter_svg: ^0.19.3
+  get_it: ^6.0.0
+  sqflite: ^2.0.0+2
+  sqflite_migration_service: ^1.0.5+2
   flutter:
     sdk: flutter
 
@@ -47,6 +51,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/sql/
     - assets/weather_icons/Sunny.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see

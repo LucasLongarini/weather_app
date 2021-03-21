@@ -1,6 +1,7 @@
+
 abstract class BaseModel {
-  BaseModel();
-  static String name;
+  BaseModel(this.id);
+  int id;
   Map<String, dynamic> toMap();
-  BaseModel.fromMap(Map<String, dynamic> map);
+  BaseModel fromMap(Map<String, dynamic> map);
 }

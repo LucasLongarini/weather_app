@@ -1,13 +1,78 @@
 import 'package:weather_app/models/base_model.dart';
+import 'enums/WeatherType.dart';
 
 class Weather extends BaseModel {
-  int id;
+  static const String tableName = 'Weather';
+  int cityId;
+  DateTime date;
+  WeatherType type;
   int weatherId;
   String weatherDescription;
+  double temperature;
+  double temperatureFeelLike;
+  double temperatureMax;
+  double temperatureMin;
+  double pressure;
+  double humidity;
+  double windSpeed;
+  double rainProbability;
 
-  Weather({this.id, this.weatherId, this.weatherDescription});
+  Weather({
+    int id,
+    this.cityId,
+    this.date,
+    this.type,
+    this.weatherId,
+    this.weatherDescription,
+    this.temperature,
+    this.temperatureFeelLike,
+    this.temperatureMax,
+    this.temperatureMin,
+    this.pressure,
+    this.humidity,
+    this.windSpeed,
+    this.rainProbability,
+  }) : super(id);
 
-  Map<String, dynamic> toMap() {}
+  @override
+  Map<String, dynamic> toMap() => {
+        'id': id,
+        'cityId': cityId,
+        'date': date?.millisecondsSinceEpoch ?? null,
+        'type': type.toShortString(),
+        'weatherId': weatherId,
+        'weatherDescription': weatherDescription,
+        'temperature': temperature,
+        'temperatureFeelLike': temperatureFeelLike,
+        'temperatureMax': temperatureMax,
+        'temperatureMin': temperatureMin,
+        'pressure': pressure,
+        'humidity': humidity,
+        'windSpeed': windSpeed,
+        'rainProbability': rainProbability,
+      };
 
-  Weather.fromMap(Map<String, dynamic> map) {}
+  @override
+  Weather fromMap(Map<String, dynamic> map) {
+    int dateInt = map['date'];
+
+    return Weather(
+      id: map['id'],
+      cityId: map['cityId'],
+      date: dateInt != null
+          ? DateTime.fromMillisecondsSinceEpoch(dateInt, isUtc: true)
+          : null,
+      type: WeatherType.daily.fromString(map['type']),
+      weatherId: map['weatherId'],
+      weatherDescription: map['weatherDescription'],
+      temperature: map['temperature'],
+      temperatureFeelLike: map['temperatureFeelLike'],
+      temperatureMax: map['temperatureMax'],
+      temperatureMin: map['temperatureMin'],
+      pressure: map['pressure'],
+      humidity: map['humidity'],
+      windSpeed: map['windSpeed'],
+      rainProbability: map['rainProbability'],
+    );
+  }
 }
