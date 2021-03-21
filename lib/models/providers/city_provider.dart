@@ -51,7 +51,7 @@ class CityProvider extends BaseProvider<City> {
       });
       return false;
     }
-    catch {
+    catch (_){
       return false;
     }
   }
