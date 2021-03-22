@@ -27,7 +27,7 @@ abstract class BaseProvider<T extends BaseModel> {
 
   Future<bool> delete(T model) async {
     try {
-      await db.delete(tableName, where: 'id = ?', whereArgs: [model.id]);
+      await db.delete(tableName, where: '${tableName}Id = ?', whereArgs: [model.id]);
       return true;
     } catch (_) {
       return false;
@@ -36,7 +36,7 @@ abstract class BaseProvider<T extends BaseModel> {
 
   Future<bool> deleteById(int id) async {
     try {
-      await db.delete(tableName, where: 'id = ?', whereArgs: [id]);
+      await db.delete(tableName, where: '${tableName}Id = ?', whereArgs: [id]);
       return true;
     } catch (_) {
       return false;
@@ -46,7 +46,7 @@ abstract class BaseProvider<T extends BaseModel> {
   Future<T> get(int id) async {
     try {
       List<Map> results =
-          await db.query(tableName, where: 'id = ?', whereArgs: [id]);
+          await db.query(tableName, where: '${tableName}Id = ?', whereArgs: [id]);
       if (results.length > 0) {
         return model.fromMap(results.first);
       }
@@ -74,7 +74,7 @@ abstract class BaseProvider<T extends BaseModel> {
   Future<bool> update(T model) async {
     try {
       await db.update(tableName, model.toMap(),
-          where: 'id = ?', whereArgs: [model.id]);
+          where: '${tableName}Id = ?', whereArgs: [model.id]);
       return true;
     } catch (_) {
       return false;

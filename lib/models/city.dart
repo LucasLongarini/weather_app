@@ -22,7 +22,7 @@ class City extends BaseModel {
 
   @override
   Map<String, dynamic> toMap() => {
-        'id': id,
+        'CityId': id,
         'lat': lat,
         'lon': lon,
         'name': name,
@@ -36,7 +36,7 @@ class City extends BaseModel {
     int updatedDetailtsInt = map['updatedDetails'];
 
     return City(
-      id: map['id'],
+      id: map['CityId'],
       lat: map['lat'],
       lon: map['lon'],
       name: map['name'],

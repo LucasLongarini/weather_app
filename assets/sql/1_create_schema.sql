@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS City (
-    id INT PRIMARY KEY,
+    CityId INTEGER PRIMARY KEY,
     lat REAL, 
     lon REAL, 
     name TEXT, 
@@ -8,11 +8,11 @@ CREATE TABLE IF NOT EXISTS City (
 );
 
 CREATE TABLE IF NOT EXISTS Weather (
-    id INT PRIMARY KEY, 
+    WeatherId INTEGER PRIMARY KEY AUTOINCREMENT, 
     cityId INT,
     type TEXT,
     date INT, 
-    weatherId INT,
+    weatherTag INT,
     weatherDescription TEXT, 
     temperature REAL, 
     temperatureFeelLike REAL, 
@@ -22,5 +22,5 @@ CREATE TABLE IF NOT EXISTS Weather (
     humidity REAL, 
     windSpeed REAL,
     rainProbability REAL,
-    FOREIGN KEY (cityId) REFERENCES City(id) ON DELETE CASCADE
+    FOREIGN KEY (CityId) REFERENCES City(CityId) ON DELETE CASCADE
 );

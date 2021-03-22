@@ -13,10 +13,11 @@ class HomeController extends GetxController {
   @override
   void onInit() async {
     //Tests
-    // bool success = await _weatherProvider.create(Weather(cityId: 0, humidity: 1, pressure: 1, rainProbability: 0, temperature: 0, temperatureMax: 0, weatherId: 1, date: null, temperatureFeelLike: 0, temperatureMin: 0, type: WeatherType.daily, windSpeed: 1, weatherDescription: "hello"));
-    // List<City> cities = await _cityProvider.getAll();
-    City city = await _cityProvider.get(1);
-    print(city);
+    // bool success1 = await _cityProvider.create(City(id: 2, lat: 20, name: "Calgary", lon: 23 ));
+    // bool success2 = await _weatherProvider.create(Weather(cityId: 2, humidity: 1, pressure: 1, rainProbability: 0, temperature: 0, temperatureMax: 0, weatherTag: 1, date: null, temperatureFeelLike: 0, temperatureMin: 0, type: WeatherType.daily, windSpeed: 1, weatherDescription: "hello"));
+    // bool success3 = await _weatherProvider.create(Weather(cityId: 2, humidity: 1, pressure: 1, rainProbability: 0, temperature: 0, temperatureMax: 0, weatherTag: 1, date: null, temperatureFeelLike: 0, temperatureMin: 0, type: WeatherType.daily, windSpeed: 1, weatherDescription: "hello"));
+    List<City> cities = await _cityProvider.getAll();
+    // City city = await _cityProvider.get(2);
     super.onInit();
   }
 }

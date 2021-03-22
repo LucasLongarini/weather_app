@@ -6,7 +6,7 @@ class Weather extends BaseModel {
   int cityId;
   DateTime date;
   WeatherType type;
-  int weatherId;
+  int weatherTag;
   String weatherDescription;
   double temperature;
   double temperatureFeelLike;
@@ -22,7 +22,7 @@ class Weather extends BaseModel {
     this.cityId,
     this.date,
     this.type,
-    this.weatherId,
+    this.weatherTag,
     this.weatherDescription,
     this.temperature,
     this.temperatureFeelLike,
@@ -36,11 +36,11 @@ class Weather extends BaseModel {
 
   @override
   Map<String, dynamic> toMap() => {
-        'id': id,
+        'WeatherId': id,
         'cityId': cityId,
         'date': date?.millisecondsSinceEpoch ?? null,
         'type': type.toShortString(),
-        'weatherId': weatherId,
+        'weatherTag': weatherTag,
         'weatherDescription': weatherDescription,
         'temperature': temperature,
         'temperatureFeelLike': temperatureFeelLike,
@@ -57,13 +57,13 @@ class Weather extends BaseModel {
     int dateInt = map['date'];
 
     return Weather(
-      id: map['id'],
+      id: map['WeatherId'],
       cityId: map['cityId'],
       date: dateInt != null
           ? DateTime.fromMillisecondsSinceEpoch(dateInt, isUtc: true)
           : null,
       type: WeatherType.daily.fromString(map['type']),
-      weatherId: map['weatherId'],
+      weatherTag: map['weatherTag'],
       weatherDescription: map['weatherDescription'],
       temperature: map['temperature'],
       temperatureFeelLike: map['temperatureFeelLike'],
